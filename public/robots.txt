@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://M-Fatah.github.io/sitemap.xml
