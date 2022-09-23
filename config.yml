@@ -61,7 +61,7 @@ params:
     enabled: true # needs to be explicitly set
     title: Muhammad Abdulfattah
     subtitle: "This is subtitle"
-    imageUrl: "./profile_picture.jpeg"
+    # imageUrl: "./profile_picture.jpeg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
