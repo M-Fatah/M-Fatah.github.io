@@ -1,7 +1,7 @@
 ---
 title: "Static reflection system for C++"
 url: /posts/static-reflection-system-for-C++
-date: 2023-03-20T22:25:42+02:00
+date: 2023-03-20T01:05:07+02:00
 draft: false
 ---
 
@@ -38,8 +38,8 @@ auto v = value_of(T&&);
 
 struct Foo
 {
-	f32 x;
-	void *internal;
+    f32 x;
+    void *internal;
 };
 
 // Member fields can be tagged with optional custom user defined annotations.
@@ -47,15 +47,15 @@ TYPE_OF(Foo, x, (internal, "NoSerialize"))
 
 /*
 {
-	.name = "Foo",
-	.kind = TYPE_KIND_STRUCT,
-	.size = sizeof(Foo),
-	.align = alignof(Foo),
-	.as_struct.fields = {
-		{"x", offsetof(Foo, x), type_of<f32>(), ""},
-		{"internal", offsetof(Foo, internal), type_of<void*>(), "NoSerialize"}
-	},
-	.as_struct.field_count = 2
+    .name = "Foo",
+    .kind = TYPE_KIND_STRUCT,
+    .size = sizeof(Foo),
+    .align = alignof(Foo),
+    .as_struct.fields = {
+        {"x", offsetof(Foo, x), type_of<f32>(), ""},
+        {"internal", offsetof(Foo, internal), type_of<void*>(), "NoSerialize"}
+    },
+    .as_struct.field_count = 2
 }
 */
 auto foo_type = type_of<Foo>();
@@ -64,21 +64,21 @@ auto foo_type = type_of<Foo>();
 template <typename T>
 struct Bar
 {
-	T t;
+    T t;
 };
 
 TYPE_OF(Foo, t)
 
 /*
 {
-	.name = "Bar<Foo>",
-	.kind = TYPE_KIND_STRUCT,
-	.size = sizeof(Bar<Foo>),
-	.align = alignof(Bar<Foo>),
-	.as_struct.fields = {
-		{"t", offsetof(Bar<Foo>, t), type_of<Foo>(), ""},
-	},
-	.as_struct.field_count = 1
+    .name = "Bar<Foo>",
+    .kind = TYPE_KIND_STRUCT,
+    .size = sizeof(Bar<Foo>),
+    .align = alignof(Bar<Foo>),
+    .as_struct.fields = {
+        {"t", offsetof(Bar<Foo>, t), type_of<Foo>(), ""},
+    },
+    .as_struct.field_count = 1
 }
 */
 auto bar_type = type_of<Bar<Foo>>();
