@@ -1,7 +1,7 @@
 ---
 title: "Static reflection system for C++ - kind_of"
 url: /posts/static-reflection-system-for-C++-kind_of
-date: 2023-03-20T01:05:07+02:00
+date: 2023-03-20T03:05:07+02:00
 draft: false
 ---
 

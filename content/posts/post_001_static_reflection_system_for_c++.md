@@ -5,7 +5,7 @@ date: 2023-03-20T01:05:07+02:00
 draft: false
 ---
 
-Recently I have been experimenting with a simple [reflection](https://github.com/M-Fatah/reflect) library to use for generic serialization and logging. In this blog post series, I will share the details on how I implemented it. Inspired by golang's [reflect](https://pkg.go.dev/reflect) package, although not feature rich like it unfortunately.
+Recently I have been experimenting with a simple [reflection](https://github.com/M-Fatah/reflect) library to use for generic serialization and logging. In this blog post series, I will share the details on how I implemented it. It is inspired by golang's [reflect](https://pkg.go.dev/reflect) package, although not feature rich like it unfortunately.
 
 So, first things first, I decided to go with `C++20` but I think with some tweaks, you can get it to work with `C++17`.
 
@@ -15,9 +15,10 @@ So, first things first, I decided to go with `C++20` but I think with some tweak
 - Primitive types, pointers, arrays and enums are supported out of the box.
 - Type info for user defined types are generated with minimal writing overhead.
 - User defined custom annotations for struct fields stored statically with the type info.
+- Works with `MSVC` and `GCC`.
 
 ### Prerequisites:
-- **MSVC:** `-std:c++20 -Zc:preprocessor`. => This will tell MSVC to conform to the preprocessor standard.
+- **MSVC:** `/std:c++20 /Zc:preprocessor`. => This will tell `MSVC` to conform to the preprocessor standard.
 - **GCC:** `-std=c++2b`.
 
 ### A brief introduction to the API:
@@ -45,6 +46,18 @@ struct Foo
 // Member fields can be tagged with optional custom user defined annotations.
 TYPE_OF(Foo, x, (internal, "NoSerialize"))
 
+// For example:
+void serialize(...)
+{
+    for (...)
+    {
+        // Skip serialization if the field is tagged as "NoSerialize".
+        auto f = type->as_struct.fields[i];
+        if (f.tag == "NoSerialize")
+            continue;
+    }
+}
+
 /*
 {
     .name = "Foo",
@@ -67,7 +80,8 @@ struct Bar
     T t;
 };
 
-TYPE_OF(Foo, t)
+template <typename T>
+TYPE_OF(Bar<T>, t)
 
 /*
 {

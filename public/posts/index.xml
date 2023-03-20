@@ -10,22 +10,11 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Mar 2023 01:05:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Static reflection system for C&#43;&#43;</title>
-      <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</link>
-      <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
-      
-      <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</guid>
-      <description>Recently I have been experimenting with a simple reflection library to use for generic serialization and logging. In this blog post series, I will share the details on how I implemented it. Inspired by golang&amp;rsquo;s reflect package, although not feature rich like it unfortunately.
-So, first things first, I decided to go with C++20 but I think with some tweaks, you can get it to work with C++17.
-Features: Single file header only library.</description>
-    </item>
-    
+    <lastBuildDate>Mon, 20 Mar 2023 03:05:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Static reflection system for C&#43;&#43; - kind_of</title>
       <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-kind_of/</link>
-      <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
+      <pubDate>Mon, 20 Mar 2023 03:05:07 +0200</pubDate>
       
       <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-kind_of/</guid>
       <description>We need a way to determine if a type is a struct or enum or an array or a primitive type, etc&amp;hellip; So first let&amp;rsquo;s define an enum called TYPE_KIND as following:
@@ -36,12 +25,22 @@ template &amp;lt;typename T&amp;gt; inline static constexpr TYPE_KIND kind_of() 
     <item>
       <title>Static reflection system for C&#43;&#43; - name_of</title>
       <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-name_of/</link>
-      <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
+      <pubDate>Mon, 20 Mar 2023 02:05:07 +0200</pubDate>
       
       <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-name_of/</guid>
       <description>Unfortunately, C++ does not provide a way to get type names properly, at least in a consistent manner between major compilers; for example, using typeid(T).name() will return mangled names on GCC and Clang.
 Fortunately there is a workaround to solve this problem; compilers provide a macro definition that gives you the function name along with its arguments and template information at compile time.
 MSVC provides __FUNCSIG__, while GCC and Clang provide __PRETTY_FUNCTION__.</description>
+    </item>
+    
+    <item>
+      <title>Static reflection system for C&#43;&#43;</title>
+      <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</link>
+      <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
+      
+      <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</guid>
+      <description>Recently I have been experimenting with a simple reflection library to use for generic serialization and logging. In this blog post series, I will share the details on how I implemented it. It is inspired by golang&amp;rsquo;s reflect package, although not feature rich like it unfortunately.
+So, first things first, I decided to go with C++20 but I think with some tweaks, you can get it to work with C++17.</description>
     </item>
     
   </channel>
