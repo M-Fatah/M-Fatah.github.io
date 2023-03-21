@@ -39,8 +39,9 @@ MSVC provides __FUNCSIG__, while GCC and Clang provide __PRETTY_FUNCTION__.</des
       <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
       
       <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</guid>
-      <description>Recently I have been experimenting with a simple reflection library to use for generic serialization and logging. In this blog post series, I will share the details on how I implemented it. It is inspired by golang&amp;rsquo;s reflect package, although not feature rich like it unfortunately.
-So, first things first, I decided to go with C++20 but I think with some tweaks, you can get it to work with C++17.</description>
+      <description>Recently I have been experimenting with a simple reflection library for C++. In this blog post series, I will share the details on how I implemented it. It is inspired by golang&amp;rsquo;s reflect package, although not feature rich like it unfortunately.
+If you want to take a look at the full implementation up ahead; you can find it here.
+What is reflection? It is the ability for a process to examine, introspect and modify its own structure and behaviour; more on Wikipedia.</description>
     </item>
     
   </channel>
