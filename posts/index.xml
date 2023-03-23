@@ -10,24 +10,33 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Mar 2023 03:05:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 04:05:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Static reflection system for C&#43;&#43; - kind_of</title>
-      <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-kind_of/</link>
-      <pubDate>Mon, 20 Mar 2023 03:05:07 +0200</pubDate>
+      <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_kind_of/</link>
+      <pubDate>Mon, 20 Mar 2023 04:05:07 +0200</pubDate>
       
-      <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-kind_of/</guid>
+      <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_kind_of/</guid>
       <description>We need a way to determine if a type is a struct or enum or an array or a primitive type, etc&amp;hellip; So first let&amp;rsquo;s define an enum called TYPE_KIND as following:
 enum TYPE_KIND { TYPE_KIND_I8, TYPE_KIND_I16, TYPE_KIND_I32, TYPE_KIND_I64, TYPE_KIND_U8, TYPE_KIND_U16, TYPE_KIND_U32, TYPE_KIND_U64, TYPE_KIND_F32, TYPE_KIND_F64, TYPE_KIND_BOOL, TYPE_KIND_CHAR, TYPE_KIND_VOID, TYPE_KIND_POINTER, TYPE_KIND_ARRAY, TYPE_KIND_ENUM, TYPE_KIND_STRUCT }; Then we can take advantage of C++&amp;rsquo;s type_traits to implement kind_of&amp;lt;T&amp;gt;() as following:
 template &amp;lt;typename T&amp;gt; inline static constexpr TYPE_KIND kind_of() { if constexpr (std::is_same_v&amp;lt;T, i8&amp;gt;) return TYPE_KIND_I8; else if constexpr (std::is_same_v&amp;lt;T, i16&amp;gt;) return TYPE_KIND_I16; else if constexpr (std::is_same_v&amp;lt;T, i32&amp;gt;) return TYPE_KIND_I32; else if constexpr (std::is_same_v&amp;lt;T, i64&amp;gt;) return TYPE_KIND_I64; else if constexpr (std::is_same_v&amp;lt;T, u8&amp;gt;) return TYPE_KIND_U8; else if constexpr (std::is_same_v&amp;lt;T, u16&amp;gt;) return TYPE_KIND_U16; else if constexpr (std::is_same_v&amp;lt;T, u32&amp;gt;) return TYPE_KIND_U32; else if constexpr (std::is_same_v&amp;lt;T, u64&amp;gt;) return TYPE_KIND_U64; else if constexpr (std::is_same_v&amp;lt;T, f32&amp;gt;) return TYPE_KIND_F32; else if constexpr (std::is_same_v&amp;lt;T, f64&amp;gt;) return TYPE_KIND_F64; else if constexpr (std::is_same_v&amp;lt;T, bool&amp;gt;) return TYPE_KIND_BOOL; else if constexpr (std::is_same_v&amp;lt;T, char&amp;gt;) return TYPE_KIND_CHAR; else if constexpr (std::is_same_v&amp;lt;T, void&amp;gt;) return TYPE_KIND_VOID; else if constexpr (std::is_pointer_v&amp;lt;T&amp;gt;) return TYPE_KIND_POINTER; else if constexpr (std::is_array_v&amp;lt;T&amp;gt;) return TYPE_KIND_ARRAY; else if constexpr (std::is_enum_v&amp;lt;T&amp;gt;) return TYPE_KIND_ENUM; else if constexpr (std::is_compound_v&amp;lt;T&amp;gt;) return TYPE_KIND_STRUCT; } Let&amp;rsquo;s also define a version that works with rvalues; to support literals kind_of(2); and object instances kind_of(T{});.</description>
     </item>
     
     <item>
-      <title>Static reflection system for C&#43;&#43; - name_of</title>
-      <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-name_of/</link>
+      <title>Static reflection system for C&#43;&#43; - name_of - part 2</title>
+      <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_2/</link>
+      <pubDate>Mon, 20 Mar 2023 03:05:07 +0200</pubDate>
+      
+      <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_2/</guid>
+      <description>Fixing the second issue: To fix the second issue, the way I did it, it needed to be runtime and also I used some features from C++20 like std::string_view::starts_with(...). I am sure there are ways to keep it compile time and also compatible with C++17, but for me it wasn&amp;rsquo;t a big deal, since I already use C++20 in my projects and it can always be visited later for improvements.</description>
+    </item>
+    
+    <item>
+      <title>Static reflection system for C&#43;&#43; - name_of - part 1</title>
+      <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_1/</link>
       <pubDate>Mon, 20 Mar 2023 02:05:07 +0200</pubDate>
       
-      <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;-name_of/</guid>
+      <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_1/</guid>
       <description>Unfortunately, C++ does not provide a way to get type names properly, at least in a consistent manner between major compilers; for example, using typeid(T).name() will return mangled names on GCC and Clang.
 Fortunately there is a workaround to solve this problem; compilers provide a macro definition that gives you the function name along with its arguments and template information at compile time.
 MSVC provides __FUNCSIG__, while GCC and Clang provide __PRETTY_FUNCTION__.</description>
@@ -35,10 +44,10 @@ MSVC provides __FUNCSIG__, while GCC and Clang provide __PRETTY_FUNCTION__.</des
     
     <item>
       <title>Static reflection system for C&#43;&#43;</title>
-      <link>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</link>
+      <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;/</link>
       <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
       
-      <guid>https://M-Fatah.github.io/posts/static-reflection-system-for-C&#43;&#43;/</guid>
+      <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;/</guid>
       <description>Recently I have been experimenting with a simple reflection library for C++. In this blog post series, I will share the details on how I implemented it. It is inspired by golang&amp;rsquo;s reflect package, although not feature rich like it unfortunately.
 If you want to take a look at the full implementation up ahead; you can find it here.
 What is reflection? It is the ability for a process to examine, introspect and modify its own structure and behaviour; more on Wikipedia.</description>
