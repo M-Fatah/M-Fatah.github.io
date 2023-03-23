@@ -44,8 +44,8 @@ We will discuss the implementation of some of these examples later in this serie
 auto n = name_of<T>();
 
 // (TYPE_KIND_POINTER, TYPE_KIND_STRUCT, ..etc).
-auto k = kind_of<T>(); // By type.
-auto k = kind_of(T{}); // By instance.
+auto k = kind_of<T>();  // By type.
+auto k = kind_of(T &&); // By rvalue.
 
 // Get type info.
 auto t = type_of<T>(); // By type.
@@ -54,6 +54,7 @@ auto t = type_of(T{}); // By instance.
 // Get value (pointer to the data, accompanied by the type info).
 auto v = value_of(T&&);
 
+// User defined types example.
 struct Foo
 {
     f32 x;
@@ -63,9 +64,9 @@ struct Foo
 // Member fields can be tagged with optional custom user defined annotations.
 TYPE_OF(Foo, x, (internal, "NoSerialize"))
 
-// For example:
 void serialize(Value v)
 {
+    ...
     if (v.type->kind == TYPE_KIND_STRUCT)
     {
         for (u64 i = 0; i < type->as_struct.field_count; ++i)
@@ -122,8 +123,7 @@ auto bar_type = type_of<Bar<Foo>>();
 
 ### Limitations and things to improve:
 - Make it fully compile time.
-- Functions reflection is not supported yet.
-- Support C++17.
+- Support functions reflection.
 - Support Clang.
 
 ### Let's get started:
