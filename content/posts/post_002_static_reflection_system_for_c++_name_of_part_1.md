@@ -130,4 +130,4 @@ You can view and edit the source code on compiler explorer [here](https://godbol
 To fix the second issue, we need to break the compile time rule, and do string manipulations during runtime to produce consistent type names accross all compilers. It is still very efficient to do so; `name_of<T>();` only calculates the name the first time it gets called, then caches the result in a static variable; subsequent calls return the cached name string.
 
 In the next article we will discuss how to fix the second issue.
-[Static reflection system for C++ - name_of - part 2](https://M-Fatah.github.io/posts/static_reflection_system_for_C++_name_of_part_2)
+[Static reflection system for C++ - name_of - part 2](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_name_of_part_2)

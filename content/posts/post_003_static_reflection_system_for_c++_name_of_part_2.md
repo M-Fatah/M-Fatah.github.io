@@ -278,4 +278,5 @@ This only works with `C++20` as I have used methods like `std::string_view::star
 
 So why did I go the extra mile for this? well, for consistency; I want type names accross all supported compilers to be exactly the same, the above implementation although lengthy, in its core it is simple; remove extra un-needed prefixes put by `MSVC`, place `const` keyword consistently across compilers and replace primitive types names like `signed char` with `i8` for example.
 
-In the next article we will discuss how to implement `kind_of<T>()`. [Static reflection system for C++ - kind_of](https://M-Fatah.github.io/posts/static_reflection_system_for_C++_kind_of)
+In the next article we will discuss how to implement `kind_of<T>()`.
+[Static reflection system for C++ - kind_of](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_kind_of)

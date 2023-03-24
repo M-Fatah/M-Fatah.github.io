@@ -18,7 +18,7 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: M-Fatah
   description: "M-Fatah's blog"
-  keywords: [Blog, Portfolio, PaperMod]
+  keywords: [Blog, Portfolio, C++]
   author: Muhammad Abdulfattah
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
@@ -60,16 +60,14 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: Muhammad Abdulfattah
-    subtitle: ""
-    # imageUrl: "./profile_picture.jpeg"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
+    subtitle: "Mobile Engineer at [King](https://twitter.com/King_Games)"
+    imageUrl: "/assets/profile_picture.jpeg"
+    imageWidth: 230.4
+    imageHeight: 256
+    imageTitle: ""
     buttons:
       - name: Posts
         url: posts
-      - name: Tags
-        url: tags
 
   # home-info mode
   homeInfoParams:
@@ -120,10 +118,6 @@ menu:
       name: posts
       url: /posts/
       weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
