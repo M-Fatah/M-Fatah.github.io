@@ -89,7 +89,7 @@ template <typename T>
 inline static constexpr const char *
 name_of()
 {
-    constexpr auto _name_of = []<u64 ...indices>(std::string_view type_name, std::index_sequence<indices...>) {
+    constexpr auto _name_of = []<size_t ...indices>(std::string_view type_name, std::index_sequence<indices...>) {
         return std::array{type_name[indices]..., '\0'};
     };
 
@@ -124,7 +124,10 @@ The pros of this approach are:
 - Works during compile time.
 - Stores the type name efficiently without wasting storage.
 
-But we still did not fix the second issue; to fix the second issue, we need to break the compile time rule, and do string manipulations during runtime to produce consistent type names accross all compilers. It is still very efficient to do so; `name_of<T>();` only calculates the name the first time it gets called, then caches the result in a static variable; subsequent calls return the cached name string.
+You can view and edit the source code on compiler explorer [here](https://godbolt.org/z/araGejqYe).
+
+### Fixing the second issue:
+To fix the second issue, we need to break the compile time rule, and do string manipulations during runtime to produce consistent type names accross all compilers. It is still very efficient to do so; `name_of<T>();` only calculates the name the first time it gets called, then caches the result in a static variable; subsequent calls return the cached name string.
 
 In the next article we will discuss how to fix the second issue.
 [Static reflection system for C++ - name_of - part 2](https://M-Fatah.github.io/posts/static_reflection_system_for_C++_name_of_part_2)
