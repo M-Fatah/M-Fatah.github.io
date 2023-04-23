@@ -24,10 +24,11 @@ Reflection is very useful when it comes to generic programming; here are some ex
 
 - **Hashing**.
 
-We will discuss the implementation of some of these examples later in this series.
+We will discuss the implementation details of some of these examples later in this series.
 
 ### Library features:
 - Single file header only library.
+- No external dependencies.
 - No allocations, type info is stored statically.
 - Primitive types, pointers, arrays and enums are supported out of the box.
 - Type info for user defined types are generated with minimal writing overhead.
