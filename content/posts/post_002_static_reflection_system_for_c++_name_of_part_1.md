@@ -82,7 +82,7 @@ auto i64_name = name_of<int64_t>();
 ```
 
 ### Fixing the first issue:
-We can fix the first issue by just copying the type name part to a static `std::array<char>` and then return it.
+We can fix the first issue by just copying the type name part to a static `std::array<char>` and then return it as a C-string.
 
 ```C++
 template <typename T>
@@ -124,10 +124,9 @@ The pros of this approach are:
 - Works during compile time.
 - Stores the type name efficiently without wasting storage.
 
-You can view and edit the source code on compiler explorer [here](https://godbolt.org/z/araGejqYe).
+You can view and edit the source code on compiler explorer [here](https://godbolt.org/z/G5sbjjPco).
 
 ### Fixing the second issue:
 To fix the second issue, we need to break the compile time rule, and do string manipulations during runtime to produce consistent type names accross all compilers. It is still very efficient to do so; `name_of<T>();` only calculates the name the first time it gets called, then caches the result in a static variable; subsequent calls return the cached name string.
 
-In the next article we will discuss how to fix the second issue.
-[Static reflection system for C++ - name_of - part 2](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_name_of_part_2)
+In the next [article](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_name_of_part_2) we will discuss how to fix the second issue.
