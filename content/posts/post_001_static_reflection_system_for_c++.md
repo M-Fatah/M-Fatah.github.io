@@ -129,7 +129,7 @@ auto bar_type = type_of<Bar<Foo>>();
 ### Let's get started:
 I will break down each function implementation in its own article
 - [Static reflection system for C++ - name_of - part 1](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_name_of_part_1)
-- [Static reflection system for C++ - name_of - part 2 (WIP)](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_name_of_part_2)
+- [Static reflection system for C++ - name_of - part 2](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_name_of_part_2)
 - [Static reflection system for C++ - kind_of](https://M-Fatah.github.io/posts/static_reflection_system_for_c++_kind_of)
 - [Static reflection system for C++ - type_of] (WIP)
 - [Static reflection system for C++ - value_of] (WIP)
