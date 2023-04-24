@@ -40,41 +40,41 @@ template <typename T>
 inline static constexpr TYPE_KIND
 kind_of()
 {
-	using Type = std::remove_cvref_t<T>;
-	if constexpr (std::is_same_v<Type, int8_t>)
-		return TYPE_KIND_I8;
-	else if constexpr (std::is_same_v<Type, int16_t>)
-		return TYPE_KIND_I16;
-	else if constexpr (std::is_same_v<Type, int32_t>)
-		return TYPE_KIND_I32;
-	else if constexpr (std::is_same_v<Type, int64_t>)
-		return TYPE_KIND_I64;
-	else if constexpr (std::is_same_v<Type, uint8_t>)
-		return TYPE_KIND_U8;
-	else if constexpr (std::is_same_v<Type, uint16_t>)
-		return TYPE_KIND_U16;
-	else if constexpr (std::is_same_v<Type, uint32_t>)
-		return TYPE_KIND_U32;
-	else if constexpr (std::is_same_v<Type, uint64_t>)
-		return TYPE_KIND_U64;
-	else if constexpr (std::is_same_v<Type, float>)
-		return TYPE_KIND_F32;
-	else if constexpr (std::is_same_v<Type, double>)
-		return TYPE_KIND_F64;
-	else if constexpr (std::is_same_v<Type, bool>)
-		return TYPE_KIND_BOOL;
-	else if constexpr (std::is_same_v<Type, char>)
-		return TYPE_KIND_CHAR;
-	else if constexpr (std::is_same_v<Type, void>)
-		return TYPE_KIND_VOID;
-	else if constexpr (std::is_pointer_v<Type>)
-		return TYPE_KIND_POINTER;
-	else if constexpr (std::is_array_v<Type>)
-		return TYPE_KIND_ARRAY;
-	else if constexpr (std::is_enum_v<Type>)
-		return TYPE_KIND_ENUM;
-	else if constexpr (std::is_compound_v<Type>)
-		return TYPE_KIND_STRUCT;
+    using Type = std::remove_cvref_t<T>;
+    if constexpr (std::is_same_v<Type, int8_t>)
+        return TYPE_KIND_I8;
+    else if constexpr (std::is_same_v<Type, int16_t>)
+        return TYPE_KIND_I16;
+    else if constexpr (std::is_same_v<Type, int32_t>)
+        return TYPE_KIND_I32;
+    else if constexpr (std::is_same_v<Type, int64_t>)
+        return TYPE_KIND_I64;
+    else if constexpr (std::is_same_v<Type, uint8_t>)
+        return TYPE_KIND_U8;
+    else if constexpr (std::is_same_v<Type, uint16_t>)
+        return TYPE_KIND_U16;
+    else if constexpr (std::is_same_v<Type, uint32_t>)
+        return TYPE_KIND_U32;
+    else if constexpr (std::is_same_v<Type, uint64_t>)
+        return TYPE_KIND_U64;
+    else if constexpr (std::is_same_v<Type, float>)
+        return TYPE_KIND_F32;
+    else if constexpr (std::is_same_v<Type, double>)
+        return TYPE_KIND_F64;
+    else if constexpr (std::is_same_v<Type, bool>)
+        return TYPE_KIND_BOOL;
+    else if constexpr (std::is_same_v<Type, char>)
+        return TYPE_KIND_CHAR;
+    else if constexpr (std::is_same_v<Type, void>)
+        return TYPE_KIND_VOID;
+    else if constexpr (std::is_pointer_v<Type>)
+        return TYPE_KIND_POINTER;
+    else if constexpr (std::is_array_v<Type>)
+        return TYPE_KIND_ARRAY;
+    else if constexpr (std::is_enum_v<Type>)
+        return TYPE_KIND_ENUM;
+    else if constexpr (std::is_compound_v<Type>)
+        return TYPE_KIND_STRUCT;
 }
 ```
 
