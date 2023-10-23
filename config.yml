@@ -60,10 +60,10 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: Muhammad Abdulfattah
-    subtitle: "Mobile Engineer at [King](https://twitter.com/King_Games)"
-    imageUrl: "/assets/profile_picture.jpeg"
-    imageWidth: 230.4
-    imageHeight: 256
+    subtitle: "Game programmer"
+    imageUrl: "/assets/profile_picture.jpg"
+    imageWidth: 512
+    imageHeight: 341.1968
     imageTitle: ""
     buttons:
       - name: Posts
