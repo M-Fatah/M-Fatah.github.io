@@ -10,11 +10,11 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jan 2024 02:50:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jan 2024 16:25:07 +0100</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Static reflection system for C&#43;&#43; - type_of - part 1</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_type_of_part_1/</link>
-      <pubDate>Sun, 07 Jan 2024 02:50:07 +0200</pubDate>
+      <pubDate>Mon, 15 Jan 2024 16:25:07 +0100</pubDate>
       
       <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_type_of_part_1/</guid>
       <description>Now we are done with name_of&amp;lt;T&amp;gt;() and kind_of&amp;lt;T&amp;gt;(). Let&amp;rsquo;s start implementing type_of&amp;lt;T&amp;gt;().
