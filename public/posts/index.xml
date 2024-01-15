@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Mar 2023 04:05:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Jan 2024 02:50:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Static reflection system for C&#43;&#43; - type_of - part 1</title>
+      <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_type_of_part_1/</link>
+      <pubDate>Sun, 07 Jan 2024 02:50:07 +0200</pubDate>
+      
+      <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_type_of_part_1/</guid>
+      <description>Now we are done with name_of&amp;lt;T&amp;gt;() and kind_of&amp;lt;T&amp;gt;(). Let&amp;rsquo;s start implementing type_of&amp;lt;T&amp;gt;().
+Type First we need to define what Type is, we will start simple and store only the name, kind, size and align of the reflected type for now.
+struct Type { const char *name; TYPE_KIND kind; size_t size; size_t align; }; Later on we can expand it to store more information such as:
+pointee&amp;rsquo;s type info in case of pointers.</description>
+    </item>
+    
     <item>
       <title>Static reflection system for C&#43;&#43; - kind_of</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_kind_of/</link>

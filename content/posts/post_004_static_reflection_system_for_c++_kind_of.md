@@ -91,4 +91,4 @@ kind_of(T &&)
 
 You can view and edit the source code on compiler explorer [here](https://godbolt.org/z/axdzGTGGf).
 
-In the next [article](https://M-Fatah.github.io/posts/static_reflection_system_for_C++_type_of) we will discuss how to implement `type_of<T>()`.
+In the next [article](https://M-Fatah.github.io/posts/static_reflection_system_for_C++_type_of_part_1) we will discuss how to implement `type_of<T>()`.
