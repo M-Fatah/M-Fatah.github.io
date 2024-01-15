@@ -1,7 +1,7 @@
 ---
 title: "Static reflection system for C++ - type_of - part 1"
 url: /posts/static_reflection_system_for_c++_type_of_part_1
-date: 2024-01-07T02:50:07+02:00
+date: 2024-01-15T16:25:07+01:00
 draft: false
 ---
 
