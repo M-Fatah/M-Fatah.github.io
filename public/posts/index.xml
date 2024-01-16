@@ -1,71 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on M-Fatah</title>
     <link>https://M-Fatah.github.io/posts/</link>
     <description>Recent content in Posts on M-Fatah</description>
     <image>
+      <title>M-Fatah</title>
       <url>https://M-Fatah.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://M-Fatah.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jan 2024 02:50:07 +0200</lastBuildDate><atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jan 2024 16:25:07 +0100</lastBuildDate>
+    <atom:link href="https://M-Fatah.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Static reflection system for C&#43;&#43; - type_of - part 1</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_type_of_part_1/</link>
-      <pubDate>Sun, 07 Jan 2024 02:50:07 +0200</pubDate>
-      
+      <pubDate>Mon, 15 Jan 2024 16:25:07 +0100</pubDate>
       <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_type_of_part_1/</guid>
       <description>Now we are done with name_of&amp;lt;T&amp;gt;() and kind_of&amp;lt;T&amp;gt;(). Let&amp;rsquo;s start implementing type_of&amp;lt;T&amp;gt;().
 Type First we need to define what Type is, we will start simple and store only the name, kind, size and align of the reflected type for now.
 struct Type { const char *name; TYPE_KIND kind; size_t size; size_t align; }; Later on we can expand it to store more information such as:
 pointee&amp;rsquo;s type info in case of pointers.</description>
     </item>
-    
     <item>
       <title>Static reflection system for C&#43;&#43; - kind_of</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_kind_of/</link>
       <pubDate>Mon, 20 Mar 2023 04:05:07 +0200</pubDate>
-      
       <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_kind_of/</guid>
       <description>We need a way to determine if a type is a struct or enum or an array or a primitive type, etc&amp;hellip; So first let&amp;rsquo;s define an enum called TYPE_KIND as following:
 enum TYPE_KIND { TYPE_KIND_I8, TYPE_KIND_I16, TYPE_KIND_I32, TYPE_KIND_I64, TYPE_KIND_U8, TYPE_KIND_U16, TYPE_KIND_U32, TYPE_KIND_U64, TYPE_KIND_F32, TYPE_KIND_F64, TYPE_KIND_BOOL, TYPE_KIND_CHAR, TYPE_KIND_VOID, TYPE_KIND_POINTER, TYPE_KIND_ARRAY, TYPE_KIND_ENUM, TYPE_KIND_STRUCT }; Then we can take advantage of C++&amp;rsquo;s type_traits to implement kind_of&amp;lt;T&amp;gt;() as following:
 #include &amp;lt;type_traits&amp;gt; template &amp;lt;typename T&amp;gt; inline static constexpr TYPE_KIND kind_of() { using Type = std::remove_cvref_t&amp;lt;T&amp;gt;; if constexpr (std::is_same_v&amp;lt;Type, int8_t&amp;gt;) return TYPE_KIND_I8; else if constexpr (std::is_same_v&amp;lt;Type, int16_t&amp;gt;) return TYPE_KIND_I16; else if constexpr (std::is_same_v&amp;lt;Type, int32_t&amp;gt;) return TYPE_KIND_I32; else if constexpr (std::is_same_v&amp;lt;Type, int64_t&amp;gt;) return TYPE_KIND_I64; else if constexpr (std::is_same_v&amp;lt;Type, uint8_t&amp;gt;) return TYPE_KIND_U8; else if constexpr (std::is_same_v&amp;lt;Type, uint16_t&amp;gt;) return TYPE_KIND_U16; else if constexpr (std::is_same_v&amp;lt;Type, uint32_t&amp;gt;) return TYPE_KIND_U32; else if constexpr (std::is_same_v&amp;lt;Type, uint64_t&amp;gt;) return TYPE_KIND_U64; else if constexpr (std::is_same_v&amp;lt;Type, float&amp;gt;) return TYPE_KIND_F32; else if constexpr (std::is_same_v&amp;lt;Type, double&amp;gt;) return TYPE_KIND_F64; else if constexpr (std::is_same_v&amp;lt;Type, bool&amp;gt;) return TYPE_KIND_BOOL; else if constexpr (std::is_same_v&amp;lt;Type, char&amp;gt;) return TYPE_KIND_CHAR; else if constexpr (std::is_same_v&amp;lt;Type, void&amp;gt;) return TYPE_KIND_VOID; else if constexpr (std::is_pointer_v&amp;lt;Type&amp;gt;) return TYPE_KIND_POINTER; else if constexpr (std::is_array_v&amp;lt;Type&amp;gt;) return TYPE_KIND_ARRAY; else if constexpr (std::is_enum_v&amp;lt;Type&amp;gt;) return TYPE_KIND_ENUM; else if constexpr (std::is_compound_v&amp;lt;Type&amp;gt;) return TYPE_KIND_STRUCT; } Let&amp;rsquo;s also define a version that works with rvalues; to support literals kind_of(2); and object instances kind_of(T{});.</description>
     </item>
-    
     <item>
       <title>Static reflection system for C&#43;&#43; - name_of - part 2</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_2/</link>
       <pubDate>Mon, 20 Mar 2023 03:05:07 +0200</pubDate>
-      
       <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_2/</guid>
       <description>To fix the second issue, we will parse the type name string at runtime and generate a prettified and consistent one across major compilers.
 We will start by checking the template parameter type, if it is a primitive type, we can just return a string literal with the correct name, otherwise we parse it.
 inline static constexpr size_t REFLECT_MAX_NAME_LENGTH = 128; template &amp;lt;typename T&amp;gt; inline static constexpr const char * name_of() { if constexpr (std::is_same_v&amp;lt;T, int8_t&amp;gt;) return &amp;#34;i8&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, int16_t&amp;gt;) return &amp;#34;i16&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, int32_t&amp;gt;) return &amp;#34;i32&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, int64_t&amp;gt;) return &amp;#34;i64&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, uint8_t&amp;gt;) return &amp;#34;u8&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, uint16_t&amp;gt;) return &amp;#34;u16&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, uint32_t&amp;gt;) return &amp;#34;u32&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, uint64_t&amp;gt;) return &amp;#34;u64&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, float&amp;gt;) return &amp;#34;f32&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, double&amp;gt;) return &amp;#34;f64&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, bool&amp;gt;) return &amp;#34;bool&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, char&amp;gt;) return &amp;#34;char&amp;#34;; else if constexpr (std::is_same_v&amp;lt;T, void&amp;gt;) return &amp;#34;void&amp;#34;; else { constexpr auto _name_of = [](std::string_view type_name) -&amp;gt; const char * { // a static buffer to hold the prettified type name, it lasts for the duration of the application life time.</description>
     </item>
-    
     <item>
       <title>Static reflection system for C&#43;&#43; - name_of - part 1</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_1/</link>
       <pubDate>Mon, 20 Mar 2023 02:05:07 +0200</pubDate>
-      
       <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;_name_of_part_1/</guid>
       <description>Unfortunately, C++ does not provide a way to get type names properly, at least in a consistent manner between major compilers; for example, using typeid(T).name() will return mangled names on GCC and Clang.
 Fortunately there is a workaround to solve this problem; compilers provide a macro definition that gives you the function name along with its arguments and template information at compile time.
 MSVC provides __FUNCSIG__, while GCC and Clang provide __PRETTY_FUNCTION__.</description>
     </item>
-    
     <item>
       <title>Static reflection system for C&#43;&#43;</title>
       <link>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;/</link>
       <pubDate>Mon, 20 Mar 2023 01:05:07 +0200</pubDate>
-      
       <guid>https://M-Fatah.github.io/posts/static_reflection_system_for_c&#43;&#43;/</guid>
       <description>Recently I have been experimenting with a simple reflection library for C++. In this blog post series, I will share the details on how I implemented it. It is inspired by golang&amp;rsquo;s reflect package, although not feature rich like it unfortunately.
 If you want to take a look at the full implementation up ahead; you can find it here.
 What is reflection? It is the ability for a process to examine, introspect and modify its own structure and behaviour; more on Wikipedia.</description>
     </item>
-    
   </channel>
 </rss>
